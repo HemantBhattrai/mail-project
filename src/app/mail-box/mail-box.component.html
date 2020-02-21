@@ -1,0 +1,45 @@
+<div class="col-sm-2 sidenav">
+    <ul class="nav nav-pills nav-stacked">
+        <li [ngClass]="{active: type=='inbox'}" ><a href="javascript:void(0);" (click)="getMails('inbox');type = 'inbox'">Inbox<span *ngIf="type=='inbox' && this.unRead">({{this.unRead}})</span></a></li>
+        <li [ngClass]="{active: type=='spam'}" ><a href="javascript:void(0);" (click)="getMails('spam');type = 'spam'">Spam</a></li>
+        <li [ngClass]="{active: type=='delete'}" ><a href="javascript:void(0);" (click)="getMails('delete');type = 'delete'">Delete</a></li>
+        <li [ngClass]="{active: type=='flagged'}" ><a href="javascript:void(0);" (click)="getMails('flagged');type = 'flagged'">Flagged</a></li>
+
+    </ul>
+</div>
+<div class="col-sm-3" *ngIf="inboxMail">
+    <div class="row">
+        <div class="col-sm-12" (click)="onSelect(inbox, type)" *ngFor="let inbox of inboxMail" >
+            <div class="col-sm-12">
+                <a href="javascript:void(0);">
+                    <div class="col-md-12" *ngIf="type != 'delete'">
+                        <span class="pull-right" style="margin-top: 10px;">
+                            <span style="margin-left: 10px;" (click)="onFlagged(inbox);">
+                                <i [ngStyle]="{'color': (inbox.flagged? 'red':'black')}" class="glyphicon glyphicon-flag"></i>
+                            </span>
+                            <span style="margin-left: 10px;" (click)="onDelete(inbox);">
+                                <i  class="glyphicon glyphicon-remove"></i>
+                            </span>
+                        </span>
+                    </div>
+                    <h4 class="col-md-12">{{ inbox.subject }}</h4>
+                    <p>{{ inbox.content | slice:0:90}}...</p>
+                </a>
+                <hr>
+
+            </div>
+            
+        </div>
+    </div>
+</div>
+<!-- <div class="col-sm-3" *ngIf="spamMail">
+    <div class="row">
+        <div class="col-sm-10" (click)="onSelect(spams, 'spam')" *ngFor="let spams of spamMail">
+            <a href="javascript:void(0);">
+                <h4>{{ spams.subject }}</h4>
+                <p>{{ spams.content | slice:0:90}}...</p>
+            </a>
+            <hr>
+        </div>
+    </div>
+</div> -->
