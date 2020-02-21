@@ -1,6 +1,6 @@
 # MailProject
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.0.2.
+This project is Mail interface where user can see their inbox and spam mails. He/She can delete the mail or flagged the from the given beside the mails. This sample project is created on Angular using html and css.
 
 ## Development server
 
@@ -16,11 +16,10 @@ Run `ng build` to build the project. The build artifacts will be stored in the `
 
 ## Running unit tests
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+ To Run this project, 
+ 1. Download 
+ 2. Run "npm install" to download required file from package.json 
+ 3. Run "ng serve"
 
 ## Further help
 
